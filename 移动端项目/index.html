@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="dist/1.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 顶部开始 -->
+    <section class="wrap">
+        <section class="header">
+            <div class="top">
+                <h1>新品上市</h1>
+                <span class="iconfont icon-icon"></span>
+            </div>
+            <ul class="list">
+              
+            </ul>
+        </section>
+    </section>
+     <!-- 顶部结束 -->
+    <!-- 中间内容开始 -->
+    <srction class="content">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </srction>
+
+
+
+
+</body>
+<script src="js/ajax.js"></script>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script>
+    $.ajax ({
+      url:"json/nav.json",
+      type:"get",
+      success:function(data){
+         for(var i=0;i<data.length;i++){
+            $(".list").append("<li></li>");
+            $("li").eq(i).addClass("iconfont "+ data[i].classname);
+            $("li").eq(i).attr("data-id",data[i].classID)
+         }
+         $(".list li").eq(0).addClass("active");
+      }
+   })
+
+
+</script>
+</html>
